@@ -14,7 +14,7 @@ public class VentanaJuego extends Canvas{
 		configurarVentana();
 	}
 	
-	private void configurarVentana(){
+	/*private*/public void configurarVentana(){
 		setPreferredSize(new Dimension(Constantes.ANCHO, Constantes.ALTO));
 		ventana = new JFrame(Constantes.NOMBREJUEGO);
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
