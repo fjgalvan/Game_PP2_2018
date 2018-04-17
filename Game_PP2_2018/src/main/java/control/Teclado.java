@@ -24,18 +24,12 @@ public class Teclado implements KeyListener {
 
 	// HAY QUE ARREGLAR ESTA PARTE, NO HACE LAS ACCIONES DE DEBAJO
 	// teclas que se mantienen pulsada
-	public void keyPressed(KeyEvent e) {
-		teclas[e.getKeyCode()] = true; // pone en true la tecla pulsada
-	}
+	public void keyPressed(KeyEvent e) { teclas[e.getKeyCode()] = true; }// pone en true la tecla pulsada
 
 	// teclas que se sueltan
-	public void keyReleased(KeyEvent e) {
-		teclas[e.getKeyCode()] = false; // pone en false tecla soltada
-
-	}
+	public void keyReleased(KeyEvent e) { teclas[e.getKeyCode()] = false; }// pone en false tecla soltada
 
 	// pulsar y soltar
 	@Override
-	public void keyTyped(KeyEvent e) {
-	}
+	public void keyTyped(KeyEvent e) { }
 }
