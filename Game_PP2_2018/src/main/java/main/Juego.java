@@ -64,27 +64,18 @@ public class Juego extends Canvas implements Runnable {
 	}
 	public synchronized void detener() {
 		enFuncionamiento = false;
-		try {
-			thread.join();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		try { thread.join(); } catch (InterruptedException e) { e.printStackTrace(); }
 	}
 	public void actualizar() {
 		teclado.actualizar();
 		//mueve la pantalla para centrar el personaje
 	/*	if(teclado.arriba) { y++; }if(teclado.abajo) { y--; }if(teclado.izquierda) { x++; }if(teclado.derecha) { x--; }*/
-		if(teclado.salir) {
-			System.exit(0);
-		}
+		if(teclado.salir) { System.exit(0); }
 		aps++;
 	}
 	public void mostrar() {
 		BufferStrategy estrategia = getBufferStrategy();
-		if(estrategia == null) {
-			createBufferStrategy(3);
-			return;
-		}
+		if(estrategia == null) { createBufferStrategy(3); return; }
 		pantalla.limpiar();
 		pantalla.mostrar(x, y);
 		//tenemos que copiar el bluc for de la pantalla al bucle juego
@@ -110,23 +101,18 @@ public class Juego extends Canvas implements Runnable {
 		long referenciaContador = System.nanoTime(); // para contar los frames (EXTRA)
 		double tiempoTranscurrido;
 		double delta = 0;
-		requestFocus();// saltea tener que hacer el clik en pantalla. (osea, podes tocar teclas cuando
-						// se inicia)
+		requestFocus();// saltea tener que hacer el clik en pantalla. (osea, podes tocar teclas cuando se inicia)
 		while (enFuncionamiento) {
-			final long inicioBucle = System.nanoTime(); // tomamos la cantidad exacta de nanosegundos cuando comienza el
-														// bucle
+			final long inicioBucle = System.nanoTime(); // tomamos la cantidad exacta de nanosegundos cuando comienza el bucle
 			tiempoTranscurrido = inicioBucle - referenciaActualizacion;// tomamos el tiempo transcurrido de cada ciclo
 			referenciaActualizacion = inicioBucle;
-			delta += tiempoTranscurrido / NS_POR_ACTUALIZACION; // sumamos a delta el tiempo trascurrido del ciclo
-																// dividido por los nanosegundos
-			while (delta >= 1) { // una vez que delta ya cumplio en llegar a uno de los bytes de APS_OBJETIVO, el
-									// juego se actualizara
+			delta += tiempoTranscurrido / NS_POR_ACTUALIZACION; // sumamos a delta el tiempo trascurrido del ciclo dividido por los nanosegundos
+			while (delta >= 1) { // una vez que delta ya cumplio en llegar a uno de los bytes de APS_OBJETIVO, el juego se actualizara
 				actualizar();
 				delta--;
 			}
 			mostrar();
-			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {// esto hace que el contador se actualice cada
-																			// segundo.
+			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {// esto hace que el contador se actualice cada segundo.
 				CONTADOR_APS = "Aps: " + aps;
 				CONTADOR_FPS = "Fps: " + fps;
 				aps = 0;
