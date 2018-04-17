@@ -1,5 +1,10 @@
 package main;
 
-public class TestJuego {
+import org.junit.Test;
 
+public class TestJuego {
+	@Test
+	public void testHojaSprite() {
+		
+	}
 }
