@@ -34,8 +34,8 @@ public class TestTeclado {
 		teclado.actualizar();
 		/*KeyEvent KeyEvent = null;
 		teclado.keyPressed(KeyEvent);
-		teclado.keyReleased(KeyEvent);
-		teclado.keyTyped(KeyEvent);*/
+		teclado.keyReleased(KeyEvent);*/
+		//teclado.keyTyped(arriba);
 		
 	}
 }
