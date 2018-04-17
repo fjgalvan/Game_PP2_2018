@@ -7,7 +7,7 @@ public class Sprite {
 	public int[] pixeles;
 	private final HojaSprite hoja;
 
-	// colección de sprites
+	// colecciÃ³n de sprites
 	public static Sprite asfalto = new Sprite(32, 0, 0, HojaSprite.desierto);
 	// fin de la coleccion
 
@@ -27,3 +27,4 @@ public class Sprite {
 		}
 	}
 }
+
