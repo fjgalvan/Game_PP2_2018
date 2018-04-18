@@ -86,6 +86,8 @@ public class Juego extends Canvas implements Runnable {
 		g.drawImage(imagen, 0, 0,getWidth(), getHeight(), null);
 		g.drawString(CONTADOR_APS, 10, 20);
 		g.drawString(CONTADOR_FPS, 10, 35);
+		g.drawString("Alto de pantalla: " + getHeight(), 10, 55);
+		g.drawString("Ancho de pantalla: " + getWidth(), 10, 75);
 		g.dispose();
 		estrategia.show();
 		fps++;
