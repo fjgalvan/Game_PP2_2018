@@ -1,8 +1,10 @@
 package main;
 
-import java.awt.event.ActionEvent;
+import java.awt.event.ActionEvent; 
 import java.awt.event.ActionListener;
 
+import claseProperties.EleccionMenu;
+import claseProperties.Principal;
 import views.PrincipalView;
 
 public class ControlPrincipalView implements ActionListener{
@@ -24,11 +26,20 @@ public class ControlPrincipalView implements ActionListener{
 	{
 		if(e.getSource() == this.principalView.getBtnConfiguration()){
 			this.principalView.getConfigurationPanel().setVisible(true);
-			//Configuracion de teclas
 		}
 		if(e.getSource() == this.principalView.getBtnAccept()){
-			this.principalView.getConfigurationPanel().setVisible(false);			
+			this.principalView.getConfigurationPanel().setVisible(false);
+			
+			String up= this.principalView.getTextFieldUp().getText();
+			String down= this.principalView.getTextFieldDown().getText();
+			String left= this.principalView.getTextFieldLeft().getText();
+			String right= this.principalView.getTextFieldRight().getText();
 			//guardar informacion de la configuracion
+			
+			EleccionMenu eleccion= new EleccionMenu(up, down, left, right, 300, 300, 40, 40, "image");	Principal principal= new Principal();
+			principal.ModificarArchivo(eleccion);
+			//principal.ModificarArchivo(this.principalView.getEleccion());
+			
 		}
 		if(e.getSource() == this.principalView.getBtnPlay()){
 			this.principalView.getFrmPrincipalView().dispose();
