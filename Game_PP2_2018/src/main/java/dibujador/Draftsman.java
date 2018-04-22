@@ -2,6 +2,7 @@ package dibujador;
 
 import java.awt.Graphics;
 import java.util.*;
+import modelo.Avatar;
 import modelo.ObjectGraphic;
 
 public class Draftsman {
@@ -9,7 +10,7 @@ public class Draftsman {
 	private List<ObjectGraphic> objectGraphics;
 	private Graphics graphic;
 	
-	public Draftsman(List objectGraphics, Graphics graphic){
+	public Draftsman(List<ObjectGraphic> objectGraphics, Graphics graphic){
 		this.objectGraphics = objectGraphics;
 		this.graphic = graphic;
 	}
@@ -19,4 +20,10 @@ public class Draftsman {
 			draftsmanObjectGraphic = new DraftsmanObjectGraphic(objectGraphics.get(i), graphic);
 		}
 	}
+	
+	public void drawAvatarGame(Avatar avatar) 
+	{
+		new DraftsmanObjectGraphic(avatar,graphic);
+	}
+	
 }

@@ -2,16 +2,25 @@ package main;
 
 import java.awt.BorderLayout;
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.Shape;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.awt.image.ImageObserver;
+import java.text.AttributedCharacterIterator;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import control.Teclado;
+import dibujador.Draftsman;
 //import dibujador.VentanaJuego;
 import grafico.Pantalla;
 
@@ -27,14 +36,15 @@ public class Juego extends Canvas implements Runnable {
 	private static String CONTADOR_APS = "";
 	private static String CONTADOR_FPS = "";
 	private static Pantalla pantalla;
-	private static BufferedImage imagen = new BufferedImage(Constantes.ANCHO, Constantes.ALTO,
-			BufferedImage.TYPE_INT_RGB);
-	private static int [] pixeles = ((DataBufferInt) imagen.getRaster().getDataBuffer()).getData();
-	private static final ImageIcon icono = new ImageIcon (Juego.class.getResource("/icono/icono.png"));
+	private static BufferedImage imagen = new BufferedImage(Constantes.ANCHO, Constantes.ALTO,BufferedImage.TYPE_INT_RGB);
+	private static int[] pixeles = ((DataBufferInt) imagen.getRaster().getDataBuffer()).getData();
+	private static final ImageIcon icono = new ImageIcon(Juego.class.getResource("/icono/icono.png"));
 	// ventanaJuego
 	private static final long serialVersionUID = 1L;
 	private static JFrame ventana;
 	// ventanaJuego
+
+	private Draftsman dib;
 	
 	public Juego() {
 		// ventanaJuego
@@ -43,47 +53,64 @@ public class Juego extends Canvas implements Runnable {
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ventana.setResizable(false);
 		ventana.setIconImage(icono.getImage());
-		ventana.setUndecorated(true);//ESTO SACA LOS BORDES DE LA PANTALLA, SI QUIEREN LO COMENTAN, NO PASA NADA
+		ventana.setUndecorated(true);// ESTO SACA LOS BORDES DE LA PANTALLA, SI QUIEREN LO COMENTAN, NO PASA NADA
 		ventana.setLayout(new BorderLayout());
 		ventana.add(this, BorderLayout.CENTER);
 		ventana.pack();
 		ventana.setLocationRelativeTo(null);
 		ventana.setVisible(true);
-		// ventanaJuego	
+		// ventanaJuego
 		pantalla = new Pantalla(Constantes.ANCHO, Constantes.ALTO);
 		teclado = new Teclado();
 		addKeyListener(teclado);
 		setFocusable(true);
+
 		// ventanaJuego = new VentanaJuego();
 	}
+
 	// synchronized permite que no se puedan ejecutar al mismo tiempo
 	public synchronized void iniciar() {
 		enFuncionamiento = true;
 		thread = new Thread(this, "Graficos");
 		thread.start();
 	}
+
 	public synchronized void detener() {
 		enFuncionamiento = false;
-		try { thread.join(); } catch (InterruptedException e) { e.printStackTrace(); }
+		try {
+			thread.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
+
 	public void actualizar() {
 		teclado.actualizar();
-		//mueve la pantalla
-	/*	if(teclado.arriba) { y++; }if(teclado.abajo) { y--; }if(teclado.izquierda) { x++; }if(teclado.derecha) { x--; }*/
-		if(teclado.salir) { System.exit(0); }
+		// mueve la pantalla
+		/*
+		 * if(teclado.arriba) { y++; }if(teclado.abajo) { y--; }if(teclado.izquierda) {
+		 * x++; }if(teclado.derecha) { x--; }
+		 */
+		if (teclado.salir) {
+			System.exit(0);
+		}
 		aps++;
 	}
+
 	public void mostrar() {
 		BufferStrategy estrategia = getBufferStrategy();
-		if(estrategia == null) { createBufferStrategy(3); return; }
+		if (estrategia == null) {
+			createBufferStrategy(3);
+			return;
+		}
 		pantalla.limpiar();
 		pantalla.mostrar(x, y);
-		//tenemos que copiar el bluc for de la pantalla al bucle juego
-		//copiamos el array de pantalla.pixeles al pixeles del juego
+		// tenemos que copiar el bluc for de la pantalla al bucle juego
+		// copiamos el array de pantalla.pixeles al pixeles del juego
 		System.arraycopy(pantalla.pixeles, 0, pixeles, 0, pixeles.length);
-		//graphics se va a encargar de dibujar las cosas que tenga estrategia.
+		// graphics se va a encargar de dibujar las cosas que tenga estrategia.
 		Graphics g = estrategia.getDrawGraphics();
-		g.drawImage(imagen, 0, 0,getWidth(), getHeight(), null);
+		g.drawImage(imagen, 0, 0, getWidth(), getHeight(), null);
 		g.drawString(CONTADOR_APS, 10, 20);
 		g.drawString(CONTADOR_FPS, 10, 35);
 		g.drawString("Alto de pantalla: " + getHeight(), 10, 55);
@@ -92,7 +119,9 @@ public class Juego extends Canvas implements Runnable {
 		estrategia.show();
 		fps++;
 	}
-	// utilizamos nanosegundos, para evitar conflictos si se ejecuta en otro sistema operativo
+
+	// utilizamos nanosegundos, para evitar conflictos si se ejecuta en otro sistema
+	// operativo
 	public void run() { // actualiza el avance y dibujos del juego
 		final int NS_POR_SEGUNDO = 1000000000; // cantidad de nanosegundos equivalentes a un segundo
 		final byte APS_OBJETIVO = 60; // cuantas actualizaciones queremos por segundo (60)
@@ -103,18 +132,23 @@ public class Juego extends Canvas implements Runnable {
 		long referenciaContador = System.nanoTime(); // para contar los frames (EXTRA)
 		double tiempoTranscurrido;
 		double delta = 0;
-		requestFocus();// saltea tener que hacer el clik en pantalla. (osea, podes tocar teclas cuando se inicia)
+		requestFocus();// saltea tener que hacer el clik en pantalla. (osea, podes tocar teclas cuando
+						// se inicia)
 		while (enFuncionamiento) {
-			final long inicioBucle = System.nanoTime(); // tomamos la cantidad exacta de nanosegundos cuando comienza el bucle
+			final long inicioBucle = System.nanoTime(); // tomamos la cantidad exacta de nanosegundos cuando comienza el
+														// bucle
 			tiempoTranscurrido = inicioBucle - referenciaActualizacion;// tomamos el tiempo transcurrido de cada ciclo
 			referenciaActualizacion = inicioBucle;
-			delta += tiempoTranscurrido / NS_POR_ACTUALIZACION; // sumamos a delta el tiempo trascurrido del ciclo dividido por los nanosegundos
-			while (delta >= 1) { // una vez que delta ya cumplio en llegar a uno de los bytes de APS_OBJETIVO, el juego se actualizara
+			delta += tiempoTranscurrido / NS_POR_ACTUALIZACION; // sumamos a delta el tiempo trascurrido del ciclo
+																// dividido por los nanosegundos
+			while (delta >= 1) { // una vez que delta ya cumplio en llegar a uno de los bytes de APS_OBJETIVO, el
+									// juego se actualizara
 				actualizar();
 				delta--;
 			}
 			mostrar();
-			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {// esto hace que el contador se actualice cada segundo.
+			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {// esto hace que el contador se actualice cada
+																			// segundo.
 				CONTADOR_APS = "Aps: " + aps;
 				CONTADOR_FPS = "Fps: " + fps;
 				aps = 0;
@@ -124,3 +158,6 @@ public class Juego extends Canvas implements Runnable {
 		}
 	}
 }
+
+
+

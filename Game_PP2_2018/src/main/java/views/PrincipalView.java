@@ -132,48 +132,24 @@ public class PrincipalView{
 		return frmPrincipalView;
 	}
 
-	public void setFrmPrincipalView(JFrame frmPrincipalView) {
-		this.frmPrincipalView = frmPrincipalView;
-	}
-
 	public JPanel getPrincipalMain() {
 		return principalMain;
-	}
-
-	public void setPrincipalMain(JPanel principalMain) {
-		this.principalMain = principalMain;
 	}
 
 	public JPanel getConfigurationPanel() {
 		return configurationPanel;
 	}
 
-	public void setConfigurationPanel(JPanel configurationPanel) {
-		this.configurationPanel = configurationPanel;
-	}
-
 	public JButton getBtnPlay() {
 		return btnPlay;
-	}
-
-	public void setBtnPlay(JButton btnPlay) {
-		this.btnPlay = btnPlay;
 	}
 
 	public JButton getBtnConfiguration() {
 		return btnConfiguration;
 	}
 
-	public void setBtnConfiguration(JButton btnConfiguration) {
-		this.btnConfiguration = btnConfiguration;
-	}
-
 	public JButton getBtnAccept() {
 		return btnAccept;
-	}
-
-	public void setBtnAccept(JButton btnAccept) {
-		this.btnAccept = btnAccept;
 	}
 
 	public JTextField getTextFieldUp() {
