@@ -23,7 +23,8 @@ public class Principal {//Lee un archivo de propiedades desde una ruta especific
 		String tecla_movimiento_abajo = propiedades.getProperty("tecla_movimiento_abajo");
 		String tecla_movimiento_izquierda = propiedades.getProperty("tecla_movimiento_izquierda");
 		String tecla_movimiento_derecha = propiedades.getProperty("tecla_movimiento_derecha");
-
+		String tecla_disparo= propiedades.getProperty("tecla_disparo");
+		
 		int personaje1_posX = Integer.parseInt(propiedades.getProperty("personaje1_posX"));
 		int personaje1_posY = Integer.parseInt(propiedades.getProperty("personaje1_posY"));
 		int personaje1_height = Integer.parseInt(propiedades.getProperty("personaje1_height"));
@@ -32,7 +33,7 @@ public class Principal {//Lee un archivo de propiedades desde una ruta especific
 		String personaje1_string_imagen = propiedades.getProperty("personaje1_string_imagen");
 
 		return new EleccionMenu(tecla_movimiento_arriba, tecla_movimiento_abajo, tecla_movimiento_izquierda,
-				tecla_movimiento_derecha, personaje1_posX, personaje1_posY, personaje1_height, personaje1_width,
+				tecla_movimiento_derecha, tecla_disparo, personaje1_posX, personaje1_posY, personaje1_height, personaje1_width,
 				personaje1_string_imagen);
 	}
 	
@@ -43,6 +44,7 @@ public class Principal {//Lee un archivo de propiedades desde una ruta especific
 			propiedades.setProperty("tecla_movimiento_abajo", eleccion.tecla_movimiento_abajo);
 			propiedades.setProperty("tecla_movimiento_izquierda", eleccion.tecla_movimiento_izquierda);
 			propiedades.setProperty("tecla_movimiento_derecha", eleccion.tecla_movimiento_derecha);
+			propiedades.setProperty("tecla_disparo", eleccion.tecla_disparo);
 			propiedades.setProperty("personaje1_posX", String.valueOf(eleccion.personaje1_posX));
 			propiedades.setProperty("personaje1_posY", String.valueOf(eleccion.personaje1_posY));
 			propiedades.setProperty("personaje1_height", String.valueOf(eleccion.personaje1_height));

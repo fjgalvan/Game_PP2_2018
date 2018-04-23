@@ -37,9 +37,10 @@ public class ControlPrincipalView implements ActionListener{
 			String down = this.principalView.getTextFieldDown().getText();
 			String left = this.principalView.getTextFieldLeft().getText();
 			String right = this.principalView.getTextFieldRight().getText();
+			//String shoot = this.principalView.getTextShoot().getText(); // AGREGAR TECLA DE DISPARO
 			// guardar informacion de la configuracion
 
-			EleccionMenu eleccion = new EleccionMenu(up, down, left, right, 300, 300, 40, 40, "image");
+			EleccionMenu eleccion = new EleccionMenu(up, down, left, right, "shoot", 300, 300, 40, 40, "image");
 			Principal principal = new Principal();
 			principal.modificarArchivo(eleccion);
 		}

@@ -120,11 +120,11 @@ public class PrincipalView{
 		textFieldRight.setColumns(10);
 		
 		btnPlay = new JButton("Play");
-		btnPlay.setBounds(350, 425, 100, 50);
+		btnPlay.setBounds(350, 425, 111, 50);
 		principalMain.add(btnPlay);
 
 		btnConfiguration = new JButton("Configuration");
-		btnConfiguration.setBounds(150, 425, 100, 50);
+		btnConfiguration.setBounds(150, 425, 111, 50);
 		principalMain.add(btnConfiguration);
 	}
 
