@@ -10,7 +10,7 @@ public class StateMoveUp extends StateMove
 	public void control() 
 	{
 //		if(tank.getCoordinate().getY() >= Configuracion.MinCoordinateY)//20)
-//			tank.moverse(getOrientacion());		
+//			tank.moverse(getOrientacion());	
 	}
 
 }
