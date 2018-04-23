@@ -13,7 +13,7 @@ public class FactoryStateMove {
 		buildMapStatesMoves(setkeys);
 	}
 
-	private void buildMapStatesMoves(SetKeys setkeys) 
+	/*private*/public void buildMapStatesMoves(SetKeys setkeys) 
 	{
 		this.mapStateMoves = new HashMap<>();
 		this.mapStateMoves.put(setkeys.getKeyUp(), new StateMoveUp());

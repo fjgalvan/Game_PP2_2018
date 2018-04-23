@@ -19,7 +19,7 @@ public class TestDraftsman extends Canvas implements Runnable{
 	public void testDraftsman() {
 		Point coordinate= new Point(100,100);
 		Point size= new Point(40,40);
-		BufferedImage imagen = new BufferedImage(Constantes.ANCHO, Constantes.ALTO,BufferedImage.TYPE_INT_RGB);;
+		BufferedImage imagen = new BufferedImage(Constantes.ANCHO, Constantes.ALTO,BufferedImage.TYPE_INT_RGB);
 		ObjectGraphic objectGraphic= new ObjectGraphic(coordinate, size, imagen);
 		Avatar avatar= new Avatar(coordinate, size, imagen);
 		String CONTADOR_APS = "";
