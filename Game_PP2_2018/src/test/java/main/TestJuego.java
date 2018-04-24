@@ -58,7 +58,7 @@ public class TestJuego {
 		teclado.actualizar();
 		
 		
-		juego.start();
+		/*juego.start();
 		juego.update();
 		for(int i=0; i<1; i++){
 			//juego.run(); //NO LO PUEDO DETENER !!!!
@@ -72,7 +72,7 @@ public class TestJuego {
 			Game.getCONTADOR_APS();
 			Game.getCONTADOR_FPS();
 			juego.stop();
-		}
+		}*/
 		
 		
 	}
