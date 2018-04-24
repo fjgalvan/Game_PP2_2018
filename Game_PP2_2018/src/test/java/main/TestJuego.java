@@ -1,6 +1,6 @@
 package main;
 
-import grafico.Pantalla;
+//import grafico.Pantalla; 
 
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
@@ -26,11 +26,11 @@ public class TestJuego {
 		int y = 0;
 		String CONTADOR_APS = "";
 		String CONTADOR_FPS = "";
-		Pantalla pantalla;
-		BufferedImage imagen = new BufferedImage(Constantes.ANCHO, Constantes.ALTO,
+		//Pantalla pantalla;
+		BufferedImage imagen = new BufferedImage(Constants.WIDTH, Constants.HEIGHT,
 				BufferedImage.TYPE_INT_RGB);
 		int [] pixeles = ((DataBufferInt) imagen.getRaster().getDataBuffer()).getData();
-		final ImageIcon icono = new ImageIcon (Juego.class.getResource("/icono/icono.png"));
+		final ImageIcon icono = new ImageIcon (Game.class.getResource("/icono/icono.png"));
 		
 		// ventanaJuego
 		final long serialVersionUID = 1L;
@@ -39,7 +39,7 @@ public class TestJuego {
 		
 		
 		
-		Juego juego= new Juego();
+		Game juego= new Game();
 		
 		final int numeroTeclas = 120;
 		final boolean[] teclas = new boolean[numeroTeclas];
@@ -56,11 +56,15 @@ public class TestJuego {
 		teclado.actualizar();
 		
 		
-		juego.iniciar();
-		juego.detener();
-		juego.actualizar();
-		juego.mostrar();
-		juego.run();
+		juego.start();
+		juego.update();
+		for(int i=0; i<1; i++){
+			//juego.run(); //NO LO PUEDO DETENER !!!!
+			Game.getCONTADOR_APS();
+			Game.getCONTADOR_FPS();
+			juego.stop();
+		}
+		
 		
 	}
 }

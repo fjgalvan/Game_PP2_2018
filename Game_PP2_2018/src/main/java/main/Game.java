@@ -2,7 +2,7 @@ package main;
 
 import drawer.Draw;
 import drawer.ViewGame;
-import mapa.BringDataOfTheStructure;
+import map.BringDataOfTheStructure;//mapa.BringDataOfTheStructure;
 
 public class Game implements Runnable {
 	private static volatile Thread thread; // agregamos el volatile porque estamos usando 2 threads
@@ -84,5 +84,9 @@ public class Game implements Runnable {
 	public static int getCONTADOR_FPS() {
 		return contador_fps;
 	}
-	
+	public synchronized void stop() {
+		working = false;
+		thread = new Thread(this, "Graphics");
+		thread.start();
+	}
 }

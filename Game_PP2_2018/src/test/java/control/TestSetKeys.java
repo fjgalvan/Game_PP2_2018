@@ -1,9 +1,9 @@
 package control;
 
-import java.awt.Point;
+import java.awt.Point; 
 import java.awt.image.BufferedImage;
 
-import main.Constantes;
+import main.Constants;
 import model.Avatar;
 
 import org.junit.Test;
@@ -14,7 +14,7 @@ public class TestSetKeys {
 	public void testAvatarController() {
 		Point coordinate= new Point(100,100);
 		Point size= new Point(40,40);
-		BufferedImage imagen = new BufferedImage(Constantes.ANCHO, Constantes.ALTO,BufferedImage.TYPE_INT_RGB);;
+		BufferedImage imagen = new BufferedImage(Constants.WIDTH, Constants.HEIGHT,BufferedImage.TYPE_INT_RGB);;
 		Avatar avatar= new Avatar(coordinate, size, imagen);
 		
 		SetKeys setkeys= new SetKeys(1, 2, 3, 4, 5) ;

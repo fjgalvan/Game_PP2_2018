@@ -1,13 +1,13 @@
 package dibujador;
 
-import java.awt.Canvas;
+import java.awt.Canvas; 
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
-import main.Constantes;
+import main.Constants;
 import model.Avatar;
 import model.ObjectGraphic;
 
@@ -19,7 +19,7 @@ public class TestDraftsman extends Canvas implements Runnable{
 	public void testDraftsman() {
 		Point coordinate= new Point(100,100);
 		Point size= new Point(40,40);
-		BufferedImage imagen = new BufferedImage(Constantes.ANCHO, Constantes.ALTO,BufferedImage.TYPE_INT_RGB);
+		BufferedImage imagen = new BufferedImage(Constants.WIDTH, Constants.HEIGHT,BufferedImage.TYPE_INT_RGB);
 		ObjectGraphic objectGraphic= new ObjectGraphic(coordinate, size, imagen);
 		Avatar avatar= new Avatar(coordinate, size, imagen);
 		String CONTADOR_APS = "";

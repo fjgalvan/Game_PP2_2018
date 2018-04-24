@@ -21,5 +21,14 @@ public class Constants {
 	public static final String ROUTE_MAP_TANK05 = "/maps/MapaTank05.csv";
 	public static final String ROUTE_MAP_BOMBERMAN01 = "/maps/Bomberman01.csv";
 	public static final String ROUTE_MAP_PACMAN01 = "/maps/Pacman01.csv";
+	public static int getWidth() {
+		return WIDTH;
+	}
+	public static int getHeight() {
+		return HEIGHT;
+	}
+	public static String getGamename() {
+		return GAMENAME;
+	}
 	
 }

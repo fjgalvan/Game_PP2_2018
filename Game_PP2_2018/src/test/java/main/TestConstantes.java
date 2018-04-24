@@ -12,8 +12,8 @@ public class TestConstantes {
 		@SuppressWarnings("unused")
 		final String NOMBREJUEGO = "Battle-UNGS";
 		
-		Constantes.getAlto();
-		Constantes.getAncho();
-		Constantes.getNombrejuego();
+		Constants.getGamename();
+		Constants.getHeight();
+		Constants.getWidth();
 	}
 }
