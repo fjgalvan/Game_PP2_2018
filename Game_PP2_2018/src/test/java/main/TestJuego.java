@@ -2,6 +2,8 @@ package main;
 
 //import grafico.Pantalla; 
 
+import java.awt.AWTException;
+import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -59,7 +61,14 @@ public class TestJuego {
 		juego.start();
 		juego.update();
 		for(int i=0; i<1; i++){
-			juego.run(); //NO LO PUEDO DETENER !!!!
+			//juego.run(); //NO LO PUEDO DETENER !!!!
+			try{
+			    Robot robot = new Robot();
+			    robot.keyPress(KeyEvent.VK_ESCAPE);
+			   }catch(AWTException a){
+			    a.printStackTrace();
+			   }
+			
 			Game.getCONTADOR_APS();
 			Game.getCONTADOR_FPS();
 			juego.stop();
