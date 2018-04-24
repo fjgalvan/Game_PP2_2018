@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 import main.Constantes;
-import modelo.Avatar;
+import model.Avatar;
 
 import org.junit.Test;
 

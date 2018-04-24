@@ -2,7 +2,6 @@ package main;
 
 import java.awt.event.ActionEvent; 
 import java.awt.event.ActionListener;
-
 import claseProperties.EleccionMenu;
 import claseProperties.Principal;
 import views.PrincipalView;
@@ -47,8 +46,8 @@ public class ControlPrincipalView implements ActionListener{
 		
 		else if (e.getSource() == this.principalView.getBtnPlay()) {
 			this.principalView.getFrmPrincipalView().dispose();
-			Juego juego = new Juego();
-			juego.iniciar();
+			Game game = new Game();
+			game.start();
 		}
 		
 	}

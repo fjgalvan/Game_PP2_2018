@@ -1,6 +1,6 @@
 package control;
 
-import modelo.Avatar;
+import model.Avatar;
 import states.StateMove;
 
 public class AvatarController {

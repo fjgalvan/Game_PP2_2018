@@ -8,8 +8,8 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 
 import main.Constantes;
-import modelo.Avatar;
-import modelo.ObjectGraphic;
+import model.Avatar;
+import model.ObjectGraphic;
 
 import org.junit.Test;
 

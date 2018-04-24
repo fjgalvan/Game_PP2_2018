@@ -1,7 +1,7 @@
 package states;
 
-import modelo.Avatar;
-import modelo.Colisionador;
+import model.Avatar;
+import model.Colisionador;
 
 public abstract class StateMove
 {

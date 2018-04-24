@@ -2,7 +2,7 @@ package claseProperties;
 
 import java.io.*;
 import java.util.Properties;
-import main.Constantes;
+import main.Constants;
 
 public class Principal {//Lee un archivo de propiedades desde una ruta especifica y se imprime en pantalla.
 	
@@ -11,7 +11,7 @@ public class Principal {//Lee un archivo de propiedades desde una ruta especific
 	public Principal() {
 		this.propiedades = new Properties();/** Creamos un Objeto de tipo Properties */
 		try {
-			propiedades.load(new FileReader(Constantes.rutaProperties));
+			propiedades.load(new FileReader(Constants.ROUTE_PROPERTIES));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -51,7 +51,7 @@ public class Principal {//Lee un archivo de propiedades desde una ruta especific
 			propiedades.setProperty("personaje1_width", String.valueOf(eleccion.personaje1_width));
 			propiedades.setProperty("personaje1_string_imagen", eleccion.personaje1_string_imagen);
 
-			FileOutputStream file = new FileOutputStream(Constantes.rutaProperties);
+			FileOutputStream file = new FileOutputStream(Constants.ROUTE_PROPERTIES);
 			file.close();
 			
 			return true;
