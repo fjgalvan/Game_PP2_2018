@@ -1,11 +1,11 @@
 package dibujador;
 
-import java.awt.Canvas; 
-import java.awt.Graphics;
+import java.awt.Canvas;  
+//import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.image.BufferStrategy;
+//import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.util.List;
+//import java.util.List;
 
 import main.Constants;
 import model.Avatar;
@@ -13,8 +13,9 @@ import model.ObjectGraphic;
 
 import org.junit.Test;
 
+@SuppressWarnings("serial")
 public class TestDraftsman extends Canvas implements Runnable{
-	@SuppressWarnings("null")
+	@SuppressWarnings({ "unused" })
 	@Test
 	public void testDraftsman() {
 		Point coordinate= new Point(100,100);
