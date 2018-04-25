@@ -1,6 +1,8 @@
 package serializable_data;
 
 import java.io.FileInputStream; 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ public class Data implements Serializable{
 		this.list= list;
 	}
 	
-	public void serializarArchivo()
+	public void serializarArchivo() throws FileNotFoundException, IOException
 	{
 		try // Debe estar en un try/catch
 		{
@@ -32,17 +34,17 @@ public class Data implements Serializable{
 			ObjectOutputStream out = new ObjectOutputStream(fos);
 			for(int i=0; i< list.size(); i++)
 			{
-				out.writeObject(list.get(i));
+				out.writeObject(list.get(i));//NO PUEDE SERIALIZAR LA IMAGEN DEL OBJETO GRÁFICO!!
 			}
 			out.close();
 		}catch (Exception ex){
 			ex.printStackTrace();
-		}
+		}	
 		
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void leerArchivo(){
+	public void leerArchivo() throws FileNotFoundException, IOException{
 		ArrayList<ObjectGraphic> list2= new ArrayList<ObjectGraphic>();
 		try // Debe estar en un try/catch
 		{
@@ -55,6 +57,6 @@ public class Data implements Serializable{
 			in.close();
 		}catch (Exception ex){
 			ex.printStackTrace();
-		}
+		}	
 	}
 }
