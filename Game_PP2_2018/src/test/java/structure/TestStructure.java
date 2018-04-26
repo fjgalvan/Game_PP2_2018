@@ -20,5 +20,9 @@ public class TestStructure {
 		TypeOfStructure typeOfStructure= new TypeOfStructure(StructureType.UNDESTROYABLE, false, false);
 		typeOfStructure.getStructureType();
 		typeOfStructure.setStructureType(StructureType.DESTROYABLE);
+		typeOfStructure.isColisicionTank();
+		typeOfStructure.isCollisicionBullet();
+		typeOfStructure.setCollisicionBullet(false);
+		typeOfStructure.setCollisicionTank(false);
 	}
 }

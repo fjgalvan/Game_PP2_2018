@@ -25,12 +25,12 @@ public class TestData {
 		list.add(avatar);
 		Data d= new Data(list);
 		
-		/*try {
+		try {
 			d.serializarArchivo();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		/*try {
 			d.leerArchivo();
 		} catch (IOException e) {
@@ -39,3 +39,4 @@ public class TestData {
 		}*/
 	}
 }
+
