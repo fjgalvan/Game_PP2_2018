@@ -89,4 +89,9 @@ public class Game implements Runnable {
 		thread = new Thread(this, "Graphics");
 		thread.start();
 	}
+
+	public Draw getDraw() {
+		return draw;
+	}
+	
 }
