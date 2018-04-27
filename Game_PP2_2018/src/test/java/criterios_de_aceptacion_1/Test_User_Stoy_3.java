@@ -1,8 +1,15 @@
 package criterios_de_aceptacion_1;
 
+import java.awt.Point;
+import java.util.ArrayList;
+
 import org.junit.Test;
 
+import com.sun.org.apache.bcel.internal.Constants;
+
 import main.Game;
+import model.Avatar;
+import model.ObjectGraphic;
 import views.PrincipalView;
 
 /**
@@ -19,10 +26,12 @@ public class Test_User_Stoy_3 {
 		PrincipalView principalView= new PrincipalView();
 		
 		principalView.getFrmPrincipalView().dispose();
-		Game game = new Game();
+		ArrayList<ObjectGraphic> objects = new ArrayList<>();
+		objects.add(new Avatar(new Point(40,40), new Point(40,40),null));
+		Game game = new Game(objects);
 		game.start();
 		
-		System.out.println("Nombre de la Ruta: "+game.getDataStructures().getMapTiled().route.toString());
+		//System.out.println("Nombre de la Ruta: "+game.getDataStructures().getMapTiled().route.toString());
 		
 	}
 }

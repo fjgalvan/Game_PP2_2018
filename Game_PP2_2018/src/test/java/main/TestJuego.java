@@ -3,13 +3,18 @@ package main;
 //import grafico.Pantalla; 
 
 import java.awt.AWTException;
+import java.awt.Point;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+
+import model.Avatar;
+import model.ObjectGraphic;
 
 import org.junit.Test;
 
@@ -40,8 +45,10 @@ public class TestJuego {
 		// ventanaJuego
 		
 		
-		
-		Game juego= new Game();
+
+		ArrayList<ObjectGraphic> objects = new ArrayList<>();
+		objects.add(new Avatar(new Point(40,40), new Point(40,40),null));
+		Game juego= new Game(objects);
 		
 		final int numeroTeclas = 120;
 		final boolean[] teclas = new boolean[numeroTeclas];

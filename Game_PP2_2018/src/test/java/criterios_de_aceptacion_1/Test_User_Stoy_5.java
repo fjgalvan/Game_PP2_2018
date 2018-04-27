@@ -1,6 +1,7 @@
 package criterios_de_aceptacion_1;
 
 /**
+ * Testear mediante test unitario la creación del mapa, y la funcionalidad de las estructuras frente a los tanques y las balas de los tanques.
  * 
  * Criterio de aceptación: 
  * Controlar que el mapa sea creado correctamente con todas las estructuras del juego..
