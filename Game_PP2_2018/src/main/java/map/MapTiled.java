@@ -17,12 +17,14 @@ public class MapTiled {
 	private Point[][] structuresMap; 
 	private ArrayList<String> typeOfStructures;
 	private String[][] images;
+	public String route;
 	
 	public MapTiled(final String route){
 		content = ChargerResource.readTextFile(route);
 		readerTiled = new ReaderTiled(content);
 		this.layersOfSprites = new ArrayList<LayerSprite>();
 		this.typeOfStructures = new ArrayList<>();
+		this.route= route;
 	}
 	
 	public void initialize(){
@@ -91,5 +93,9 @@ public class MapTiled {
 					structures.add(new Structure(coordinates[i][j], new Point(40,40), ChargerResource.loadImageTranslated(image[i][j]), new TypeOfStructure(StructureType.UNDESTROYABLE,true, true)));
 			}
 		}
+	}
+	
+	public String getRoute() {
+		return route;
 	}
 }

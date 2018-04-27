@@ -5,6 +5,10 @@ import drawer.ViewGame;
 import map.BringDataOfTheStructure;//mapa.BringDataOfTheStructure;
 
 public class Game implements Runnable {
+	public BringDataOfTheStructure getDataStructures() {
+		return dataStructures;
+	}
+
 	private static volatile Thread thread; // agregamos el volatile porque estamos usando 2 threads
 	private static boolean working = false;
 	private static int aps = 0; // actualizaciones por segundo

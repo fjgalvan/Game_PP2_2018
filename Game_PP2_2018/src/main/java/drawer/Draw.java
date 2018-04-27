@@ -46,4 +46,8 @@ public class Draw  extends Canvas {
 		g.dispose();
 		buffer.show();
 	}
+
+	public ArrayList<ObjectGraphic> getData() {
+		return data;
+	}
 }

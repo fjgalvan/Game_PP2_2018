@@ -1,5 +1,7 @@
 package criterios_de_aceptacion_1;
 
+import org.junit.Test;
+
 import main.Game;
 import views.PrincipalView;
 
@@ -11,6 +13,7 @@ import views.PrincipalView;
  *
  */
 public class Test_User_Story_1 {
+	@Test
 	public static void main(String[] args) {
 		PrincipalView principalView= new PrincipalView();
 	
