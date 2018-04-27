@@ -15,7 +15,7 @@ public class MapTiled {
 	private ArrayList<LayerSprite> layersOfSprites;
 	private ReaderTiled readerTiled;
 	private Point[][] structuresMap; 
-	private ArrayList<String> typeOfStructures;
+	/*private*/public ArrayList<String> typeOfStructures;
 	private String[][] images;
 	public String route;
 	
@@ -97,5 +97,13 @@ public class MapTiled {
 	
 	public String getRoute() {
 		return route;
+	}
+	public boolean routeExist(){
+		if (route != null){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 }
