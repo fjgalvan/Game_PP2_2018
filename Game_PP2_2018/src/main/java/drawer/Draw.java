@@ -16,13 +16,13 @@ public class Draw  extends Canvas {
 	private static final long serialVersionUID = 2L;//-6227038142688953660
 	private ArrayList<ObjectGraphic> data;
 
-	public Draw(ArrayList<ObjectGraphic> data) {
+	public Draw(ArrayList<ObjectGraphic> objects) {
 		setIgnoreRepaint(true);
 		setPreferredSize(new Dimension(Constants.WIDTH, Constants.HEIGHT));
 		addKeyListener(ManagerControl.keyboard);
 		setFocusable(true);
 		requestFocus();
-		this.data = data;
+		this.data = objects;
 	}
 	
 	public void DrawImages() {

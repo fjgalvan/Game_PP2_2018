@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import claseProperties.EleccionMenu;
 import claseProperties.Principal;
+import map.BringDataOfTheStructure;
 import views.PrincipalView;
 
 public class ControlPrincipalView implements ActionListener{
@@ -48,7 +49,9 @@ public class ControlPrincipalView implements ActionListener{
 		
 		else if (e.getSource() == this.principalView.getBtnPlay()) {
 			this.principalView.getFrmPrincipalView().dispose();
-			Game game = new Game();
+			BringDataOfTheStructure objectStructures = new BringDataOfTheStructure();
+			objectStructures.fillList();
+			Game game = new Game(objectStructures.getObjects());
 			game.start();
 		}
 		

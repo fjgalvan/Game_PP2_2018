@@ -12,6 +12,7 @@ public class Constants {
 	public static final String ROUTE_IMAGE_AGUA = "/imagen/agua.png";
 	public static final String ROUTE_IMAGE_PANEL = "/imagen/panel.png";
 	public static final String ROUTE_IMAGE_BOSQUE = "/imagen/bosque.png";
+	public static final String ROUTE_IMAGE_TANKP1 = "/imagen/Tank1.png";
 	
 
 	public static final String ROUTE_MAP_TANK01 = "/maps/MapaTank01.csv";
@@ -21,6 +22,7 @@ public class Constants {
 	public static final String ROUTE_MAP_TANK05 = "/maps/MapaTank05.csv";
 	public static final String ROUTE_MAP_BOMBERMAN01 = "/maps/Bomberman01.csv";
 	public static final String ROUTE_MAP_PACMAN01 = "/maps/Pacman01.csv";
+	
 	public static int getWidth() {
 		return WIDTH;
 	}

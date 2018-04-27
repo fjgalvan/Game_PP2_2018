@@ -1,14 +1,12 @@
 package main;
 
+import java.util.ArrayList;
 import drawer.Draw;
 import drawer.ViewGame;
-import map.BringDataOfTheStructure;//mapa.BringDataOfTheStructure;
+import model.ObjectGraphic;
 
 public class Game implements Runnable {
-	public BringDataOfTheStructure getDataStructures() {
-		return dataStructures;
-	}
-
+	
 	private static volatile Thread thread; // agregamos el volatile porque estamos usando 2 threads
 	private static boolean working = false;
 	private static int aps = 0; // actualizaciones por segundo
@@ -17,13 +15,15 @@ public class Game implements Runnable {
 	private static int contador_fps = 0; 
 	@SuppressWarnings("unused")
 	private static ViewGame viewGame;
-	private BringDataOfTheStructure dataStructures;
+	private  ArrayList<ObjectGraphic> objects;
+	private UpdateGame updateGame;
 	private Draw draw;
 	
-	public Game() {
-		dataStructures = new BringDataOfTheStructure();
-		dataStructures.fillList();
-		draw = new Draw(dataStructures.getObjects());
+	public Game(ArrayList<ObjectGraphic> objectsStructures) {
+		objects = new ArrayList<>();
+		objects.addAll(objectsStructures);
+		updateGame = new UpdateGame();
+		draw = new Draw(objects);
 		viewGame = new ViewGame(draw);
 	}
 
@@ -35,6 +35,8 @@ public class Game implements Runnable {
 	}
 
 	public void update() {
+		updateGame.actualizar();
+		draw.getData().addAll(updateGame.getObjects());
 		aps++;
 	}
 
